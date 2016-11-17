@@ -27,7 +27,7 @@
     </head>
 
 
-    <body class="{{lang}} {% block body_classes %}{% endblock %}">
+    <body class="{% block body_classes %}{% endblock %}">
 
         {% include "icons.html" %}
 
@@ -58,9 +58,7 @@
         <script data-turbolinks-eval="false">
             var pieces = {{pieces_json|safe}};
             var core_settings = {
-                api: window.location.origin+"/"{% if lang %},
-                lang: "{{lang}}"{% endif %},
-                lang_route: "{{lang_route}}"
+                api: window.location.origin+"/"
             }
         </script>
         <script src="/build/templates.js" data-turbolinks-eval="false"></script>
