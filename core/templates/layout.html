@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+        {% block title %}
+            {{pieces.homepage.title|striptags}}
+        {% endblock %}
+        </title>
+        <meta name="description" content="{% block description %}{{pieces.homepage.description|striptags}}{% endblock %}">
+
+
+        <meta name="twitter:card" value="summary">
+        <meta property="og:title" content="{% block og_title %}{{pieces.homepage.title|striptags}}{% endblock %}">
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="{% block og_description %}{{pieces.homepage.description}}{% endblock %}">
+        <meta property="og:site_name" content="{{pieces.homepage.title|striptags}}">
+
+
+        <link rel="shortcut icon" href="/build/images/favicon.png" type="image/x-icon"/>
+
+        <link href="/build/all.css" rel="stylesheet" type="text/css">
+    </head>
+
+
+    <body class="{{lang}} {% block body_classes %}{% endblock %}">
+
+        {% include "icons.html" %}
+
+
+        <div class="main" role="main">
+            {% block main %}{% endblock %}
+        </div>
+
+
+
+        <div id="admin"></div>
+
+
+
+        <footer class="footer padded text_center" id="footer">
+            {% block footer %}
+            <small>&copy; Phillip Malboeuf</small>
+            {% endblock %}
+        </footer>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/g/jquery@3.0.0-beta1(jquery.min.js),underscorejs@1.8.3,backbonejs@1.2.3,handlebarsjs@4.0.5,to-markdown@1.3.0,marked@0.3.5,velocity@1.2.3" data-turbolinks-eval="false"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" async data-turbolinks-eval="false"></script>
+
+
+        <script data-turbolinks-eval="false">
+            var pieces = {{pieces_json|safe}};
+            var core_settings = {
+                api: window.location.origin+"/"{% if lang %},
+                lang: "{{lang}}"{% endif %},
+                lang_route: "{{lang_route}}"
+            }
+        </script>
+        <script src="/build/templates.js" data-turbolinks-eval="false"></script>
+        <script src="/build/app.js" data-turbolinks-eval="false"></script>
+
+
+
+        {% block scripts %}{% endblock %}
+
+
+        <script data-turbolinks-eval="false">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        // ga('create', 'UA-40301409-4', 'auto');
+        // ga('send', 'pageview');
+
+        </script>
+
+        {% if debugging %}
+        <script src="//localhost:9000/livereload.js" async data-turbolinks-eval="false"></script>
+        {% endif %}
+
+    </body>
+</html>

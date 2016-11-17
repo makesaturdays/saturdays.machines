@@ -1,0 +1,39 @@
+<div class="boxes">
+	<a href="/" class="box">
+		<svg class="icon icon--full"><use xlink:href="#icon-logo"></use></svg>
+	</a>
+
+	<div class="box">
+		<pre>
+{
+	<span class="green">intro</span> : {{pieces.homepage.description}},
+	<span class="green">email</span> : <a href="mailto:{{pieces.homepage.email}}" class="a--underline green">{{pieces.homepage.email}}</a>,
+	<span class="green">twitter</span> : <a href="https://twitter.com/{{pieces.homepage.twitter}}" class="a--underline green">@{{pieces.homepage.twitter}}</a>,
+	<span class="green">github</span> : <a href="https://github.com/{{pieces.homepage.github}}" class="a--underline green">{{pieces.homepage.github}}</a>
+}
+		</pre>
+	</div>
+
+	{% for article in lists.articles.posts %}
+	<a href="/lists/{{lists.articles.route}}/posts/{{article.route}}" class="box">
+		<div></div>
+		<div>
+			<h4>{{article.title}}</h4>
+			<h6>{{article.published_at|date}}</h6>
+		</div>
+	</a>
+	{% endfor %}
+
+	{% for project in lists.projects.posts %}
+	<a href="{{project.url}}" class="box" target="_blank">
+		{# <div>
+			<h3>{{project.title}}</h3>
+			<h6>{{project.url}}</h6>
+		</div>
+		<div>
+			<small>{{project.description}}</small>
+		</div> #}
+		<svg class="icon icon--full"><use xlink:href="#icon-saturdays"></use></svg>
+	</a>
+	{% endfor %}
+</div>
