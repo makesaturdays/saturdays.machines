@@ -5,7 +5,6 @@ from flask import request, abort
 from core.helpers.json import to_json
 from core.models.core.model import Model
 from core.models.core.has_routes import HasRoutes
-from core.models.core.with_templates import WithTemplates
 
 from core.helpers.validation_rules import validation_rules
 
@@ -20,7 +19,7 @@ import urllib
 
 
 with app.app_context():
-	class User(WithTemplates, HasRoutes, Model):
+	class User(HasRoutes, Model):
 
 		collection_name = 'users'
 		collection_sort = [('updated_at', -1), ('created_at', -1)]

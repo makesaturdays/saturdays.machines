@@ -24,17 +24,16 @@ Session.define_routes()
 User.define_routes()
 
 
-from core.models.cms.piece import Piece
-from core.models.cms.author import Author
-from core.models.cms.list import List
-from core.models.cms.list_post import ListPost
-from core.models.cms.comment import ListPostComment
+import socket
 
-Piece.define_routes()
-Author.define_routes()
-List.define_routes()
-ListPost.define_routes()
-ListPostComment.define_routes()
+@app.route('/details')
+def details():
+	# s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	# s.connect(('8.8.8.8', 0))
+
+	return to_json({
+		# 'ip_address': s.getsockname()[0]
+	})
 
 
 
