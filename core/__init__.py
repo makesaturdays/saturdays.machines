@@ -1,18 +1,18 @@
 
 from flask import Flask
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 
 
 
 app = Flask(__name__, static_folder='build')
 
 
-app.config.from_object('config.environment_default')
+# app.config.from_object('config.environment_default')
 
-try:
-	app.config.from_object('config.environment_dev')
-except ImportError:
-	pass
+# try:
+# 	app.config.from_object('config.environment_dev')
+# except ImportError:
+# 	pass
 
 
 app.mongo = PyMongo(app)
