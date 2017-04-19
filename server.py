@@ -31,3 +31,6 @@ def details():
 		'version': '0.1'
 	})
 
+
+if __name__ == '__main__':
+	app.run(threaded=True, port=80)
