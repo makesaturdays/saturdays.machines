@@ -24,8 +24,8 @@ import os
 # User.define_routes()
 
 
-@app.route('/details')
-def details():
+@app.route('/')
+def index():
 
 	return to_json({
 		'version': '0.1'
@@ -33,4 +33,4 @@ def details():
 
 
 if __name__ == '__main__':
-	app.run(threaded=True, port=80)
+	app.run('0.0.0.0', threaded=True, port=80)
