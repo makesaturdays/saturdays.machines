@@ -15,7 +15,7 @@ Flask-Mail==0.9.1
 Flask-PyMongo==0.4.1
 Flask-Script==2.0.5
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 kombu==4.0.2
 mandrill==1.0.57
 Markdown==2.6.8
